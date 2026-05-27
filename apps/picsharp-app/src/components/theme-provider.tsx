@@ -63,7 +63,13 @@ export function ThemeProvider({
   }
 
   useEffect(() => {
-    setThemeStyle(defaultTheme === Theme.System && mediaQuery.matches ? Theme.Dark : defaultTheme);
+    const resolvedTheme =
+      defaultTheme === Theme.System
+        ? mediaQuery.matches
+          ? Theme.Dark
+          : Theme.Light
+        : defaultTheme;
+    setThemeStyle(resolvedTheme);
   }, [defaultTheme]);
 
   // useEffect(() => {
