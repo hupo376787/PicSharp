@@ -247,19 +247,13 @@ export default function AppLayout() {
 
   return (
     <ErrorBoundary>
-      <div className='relative h-screen w-screen dark:bg-[#222222]'>
-        <div
-          className='absolute inset-0 z-0'
-          style={{
-            background:
-              'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(226, 232, 240, 0.15), transparent 70%), #000000',
-          }}
-        />
+      <div className='relative h-screen w-screen bg-white dark:bg-[#222222]'>
+        <div className='absolute inset-0 z-0 bg-white dark:bg-black' />
         <PageProgress ref={progressRef} description={t('tips.import_files')} />
         <Header />
         <div
           className={cn(
-            'select-none overflow-hidden rounded-t-xl dark:bg-[#181818]',
+            'select-none overflow-hidden rounded-t-xl bg-white dark:bg-[#181818]',
             WebviewWindow.getCurrent().label === 'main' ||
               (WebviewWindow.getCurrent().label !== 'main' &&
                 (location.pathname.startsWith('/compression/watch') ||

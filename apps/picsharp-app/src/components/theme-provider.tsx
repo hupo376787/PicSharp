@@ -28,14 +28,14 @@ const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
 export function ThemeProvider({
   children,
-  defaultTheme = Theme.System,
+  defaultTheme = Theme.Light,
   storageKey = 'app-theme',
   ...props
 }: ThemeProviderProps) {
   // const [theme, setTheme] = useState<Theme>(
   //   () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
   // );
-  const [theme, setTheme] = useState<Theme>(Theme.Dark);
+  const [theme, setTheme] = useState<Theme>(Theme.Light);
   const themeRef = useRef<Theme>(theme);
 
   const algorithm = {
@@ -61,6 +61,10 @@ export function ThemeProvider({
     setTheme(newTheme);
     themeRef.current = newTheme;
   }
+
+  useEffect(() => {
+    setThemeStyle(defaultTheme === Theme.System && mediaQuery.matches ? Theme.Dark : Theme.Light);
+  }, [defaultTheme]);
 
   // useEffect(() => {
   //   function handleThemeChange(event: MediaQueryListEvent) {

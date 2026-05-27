@@ -81,15 +81,9 @@ const PageProgress = forwardRef<
       className='fixed left-0 top-0 z-[100] flex hidden h-full w-full flex-col items-center justify-center'
       ref={rootRef}
     >
-      <div
-        className='absolute inset-0 z-0'
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(226, 232, 240, 0.15), transparent 70%), #000000',
-        }}
-      />
+      <div className='absolute inset-0 z-0 bg-white dark:bg-black' />
       {description && (
-        <div className='relative z-10 mb-2 text-center text-sm text-neutral-100 dark:text-neutral-400'>
+        <div className='relative z-10 mb-2 text-center text-sm text-neutral-900 dark:text-neutral-400'>
           {description}
         </div>
       )}
