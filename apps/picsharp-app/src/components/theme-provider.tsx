@@ -35,7 +35,7 @@ export function ThemeProvider({
   // const [theme, setTheme] = useState<Theme>(
   //   () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
   // );
-  const [theme, setTheme] = useState<Theme>(Theme.Light);
+  const [theme, setTheme] = useState<Theme>(defaultTheme);
   const themeRef = useRef<Theme>(theme);
 
   const algorithm = {
@@ -63,7 +63,7 @@ export function ThemeProvider({
   }
 
   useEffect(() => {
-    setThemeStyle(defaultTheme === Theme.System && mediaQuery.matches ? Theme.Dark : Theme.Light);
+    setThemeStyle(defaultTheme === Theme.System && mediaQuery.matches ? Theme.Dark : defaultTheme);
   }, [defaultTheme]);
 
   // useEffect(() => {
